@@ -10,39 +10,39 @@ public class Inimigo {
 
     // Lista de inimigos para cada nível
     private static final String[][] NOME_INIMIGOS = {
-        {"Demonio", "Destruidor"},           // Nível 1
-        {"Furia", "Dragao"},                 // Nível 2
-        {"Dragao de Gelo", "Hidra"},         // Nível 3
-        {"Ciclope", "Gigante de Gelo"},      // Nível 4
-        {"Ogro Bruto", "Genio Vermelho"},    // Nível 5
-        {"Gargula", "Medusa"},               // Nível 6
-        {"Pantera Negra", "Pesadelo"},       // Nível 7
-        {"Orc", "Verme Gigante"},            // Nível 8
-        {"Elemental de Fogo", "Elemental de Agua"},  // Nível 9
-        {"Elemental de Terra", "Elemental de Ar"}     // Nível 10
+        {"Demonio", "Destruidor"},           
+        {"Furia", "Dragao"},                 
+        {"Dragao de Gelo", "Hidra"},         
+        {"Ciclope", "Gigante de Gelo"},      
+        {"Ogro Bruto", "Genio Vermelho"},    
+        {"Gargula", "Medusa"},             
+        {"Pantera Negra", "Pesadelo"},      
+        {"Orc", "Verme Gigante"},            
+        {"Elemental de Fogo", "Elemental de Agua"},
+        {"Elemental de Terra", "Elemental de Ar"},     
     };
 
     public Inimigo(int nivel, int id) {
-        // Setando o nome do monstro baseado no nível e id (1 ou 2 para cada nível)
-        this.nome = NOME_INIMIGOS[nivel - 1][id - 1]; // -1 porque o array é 0-based
+        
+        this.nome = NOME_INIMIGOS[nivel - 1][id - 1]; 
         this.nivel = nivel;
 
-        // Gerar drops
+    
         gerarDrop();
     }
 
     private void gerarDrop() {
         Random random = new Random();
         
-        // A chance de drops para a arma e armadura
-        if (random.nextInt(100) < 70) {  // 70% chance de dropar algum item
-            // Gerando armas
-            if (random.nextInt(100) < 50) { // 50% chance de dropar arma
-                arma = new newWeapon(nivel, random.nextInt(6) + 1);  // Gerar uma arma de tipo 1 a 6 com base no nível
+      
+        if (random.nextInt(100) < 70) { 
+           
+            if (random.nextInt(100) < 50) { 
+                arma = new newWeapon(nivel, random.nextInt(6) + 1);  
             }
-            // Gerando armaduras
-            if (random.nextInt(100) < 50) { // 50% chance de dropar armadura
-                armadura = new newArmor(nivel, random.nextInt(2) + 1);  // Gerar armadura de tipo 1 ou 2
+           
+            if (random.nextInt(100) < 50) { 
+                armadura = new newArmor(nivel, random.nextInt(2) + 1);  
             }
         }
     }
